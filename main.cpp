@@ -246,6 +246,8 @@ int main() {
   glfwInit();
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+  // glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+  glfwWindowHint(GLFW_FLOATING, GLFW_TRUE);
 
   GLFWwindow *window = glfwCreateWindow(
       window_size, window_size, "2D Angular Shadow Mask", nullptr, nullptr);
@@ -355,6 +357,9 @@ int main() {
     static float t = 0;
     if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS) {
       t += dt;
+    }
+    if (glfwGetKey(window, GLFW_KEY_B) == GLFW_PRESS) {
+      t -= dt;
     }
 
     // begin shadow pass
